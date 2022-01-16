@@ -10,6 +10,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Invoice from './routes/invoice';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,7 +18,9 @@ ReactDOM.render(
     <Routes>
         <Route path="/" element={<App />} >
           <Route path="expenses" element={<Expenses />} />
-          <Route path="invoices" element={<Invoices />} />
+          <Route path="invoices" element={<Invoices />}>
+            <Route path=":invoiceId" element={<Invoice />} />
+          </Route>
         </Route>
         <Route path="*" element={
           <main style={{ padding: "1rem" }}>
